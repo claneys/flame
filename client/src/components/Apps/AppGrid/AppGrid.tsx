@@ -21,7 +21,11 @@ export const AppGrid = (props: Props): JSX.Element => {
       apps = (
         <div className={classes.AppGrid}>
           {props.apps.map((app: App): JSX.Element => {
-            return <AppCard key={app.id} app={app} />;
+            return (
+              <div key={app.id} className={app.embed ? classes.FullWidth : ''}>
+                <AppCard app={app} />
+              </div>
+            );
           })}
         </div>
       );

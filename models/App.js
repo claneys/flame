@@ -36,6 +36,10 @@ const App = sequelize.define(
       allowNull: false,
       defaultValue: '',
     },
+    embed: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
+    },
   },
   {
     tableName: 'apps',

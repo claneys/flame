@@ -6,6 +6,7 @@ export const newAppTemplate: NewApp = {
   icon: '',
   isPublic: true,
   description: '',
+  embed: false,
 };
 
 export const appTemplate: App = {

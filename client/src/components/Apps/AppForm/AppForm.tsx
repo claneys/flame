@@ -78,6 +78,7 @@ export const AppForm = ({ modalHandler }: Props): JSX.Element => {
       data.append('description', formData.description);
       data.append('url', formData.url);
       data.append('isPublic', `${formData.isPublic ? 1 : 0}`);
+      data.append('embed', `${formData.embed ? 1 : 0}`);
 
       return data;
     };
@@ -212,6 +213,20 @@ export const AppForm = ({ modalHandler }: Props): JSX.Element => {
         >
           <option value={1}>Visible (anyone can access it)</option>
           <option value={0}>Hidden (authentication required)</option>
+        </select>
+      </InputGroup>
+
+      {/* EMBED */}
+      <InputGroup>
+        <label htmlFor="embed">Embed in page</label>
+        <select
+          id="embed"
+          name="embed"
+          value={formData.embed ? 1 : 0}
+          onChange={(e) => inputChangeHandler(e, { isBool: true })}
+        >
+          <option value={0}>No (open as link)</option>
+          <option value={1}>Yes (embed as iframe)</option>
         </select>
       </InputGroup>
 

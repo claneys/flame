@@ -45,17 +45,25 @@ export const AppCard = ({ app }: Props): JSX.Element => {
   }
 
   return (
-    <a
-      href={redirectUrl}
-      target={config.appsSameTab ? '' : '_blank'}
-      rel="noreferrer"
-      className={classes.AppCard}
-    >
-      <div className={classes.AppCardIcon}>{iconEl}</div>
-      <div className={classes.AppCardDetails}>
-        <h5>{app.name}</h5>
-        <span>{!app.description.length ? displayUrl : app.description}</span>
-      </div>
-    </a>
+    <>
+      {app.embed ? (
+        <div className={classes.Embed}>
+          <iframe src={app.url} title={app.name} />
+        </div>
+      ) : (
+        <a
+          href={redirectUrl}
+          target={config.appsSameTab ? '' : '_blank'}
+          rel="noreferrer"
+          className={classes.AppCard}
+        >
+          <div className={classes.AppCardIcon}>{iconEl}</div>
+          <div className={classes.AppCardDetails}>
+            <h5>{app.name}</h5>
+            <span>{!app.description.length ? displayUrl : app.description}</span>
+          </div>
+        </a>
+      )}
+    </>
   );
 };
